@@ -1,0 +1,11 @@
+True Class,Predicted Class,Count
+talk.religion.misc,soc.religion.christian,30
+rec.motorcycles,rec.autos,22
+alt.atheism,soc.religion.christian,18
+talk.politics.misc,talk.politics.guns,18
+talk.politics.guns,talk.politics.misc,17
+comp.sys.ibm.pc.hardware,comp.sys.mac.hardware,16
+talk.religion.misc,alt.atheism,15
+comp.sys.mac.hardware,comp.sys.ibm.pc.hardware,14
+talk.religion.misc,talk.politics.guns,14
+comp.sys.ibm.pc.hardware,comp.os.ms-windows.misc,13

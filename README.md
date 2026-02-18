@@ -61,9 +61,30 @@ python -m scripts.run_part3_clustering
 - `outputs/clusters/`: JSON files containing cluster info and representatives.
 - `outputs/topic_tree.txt`: Hierarchical text representation of topics.
 
+## Results (Macro F1)
+
+### Part 1: Sparse Classification
+| Model | Count Vectorizer | TF-IDF Vectorizer |
+| :--- | :--- | :--- |
+| **MultinomialNB** | 0.6667 | 0.7124 |
+| **LogisticRegression** | 0.7007 | 0.7423 |
+| **LinearSVC** | 0.6616 | **0.7668** |
+| **RandomForest** | 0.6760 | 0.6796 |
+
+> **Best Model**: LinearSVC with TF-IDF (F1: 0.7668)
+
+### Part 2: Embedding Classification
+| Model | Macro F1 |
+| :--- | :--- |
+| **GaussianNB** | 0.6750 |
+| **LogisticRegression** | **0.7149** |
+| **LinearSVC** | 0.7098 |
+| **RandomForest** | 0.6644 |
+
 ## Modeling Comparison
 - **Sparse Models**: Typically perform excellent on this dataset (Accuracy > 85%) because the 20 Newsgroups classes are often defined by specific jargon (e.g., "windows", "god", "team") which TF-IDF captures perfectly.
 - **Dense Models**: While semantically rich, short-vector embeddings without fine-tuning may sometimes underperform huge sparse feature spaces on pure keyword-based classification tasks, though they generalize better to unseen vocabulary.
+- **Analysis**: As shown in the results, sparse models (specifically SVM with TF-IDF) outperformed dense embedding models on this dataset. The high-dimensional sparse features capture specific keywords that are strong predictors for the 20 Newsgroups topics, whereas the compressed dense embeddings (384d) may lose some of this fine-grained lexical signal.
 
 ## Clustering Logic
 1.  **Embeddings**: Generated via `all-MiniLM-L6-v2`.
